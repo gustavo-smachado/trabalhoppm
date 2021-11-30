@@ -1,0 +1,27 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar color="medium">
+          <ion-title>
+            Pessoas e Vacinas
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-list-header>Menu</ion-list-header>
+          <ion-menu-toggle auto-hide="false" *ngFor="let menu of menus">
+            <ion-item routerDirection="root" [routerLink]="[menu.url]" lines="none" detail="false"
+              routerLinkActive="selected">
+              <ion-icon slot="end" [ios]="menu.icon + '-outline'" [md]="menu.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ menu.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

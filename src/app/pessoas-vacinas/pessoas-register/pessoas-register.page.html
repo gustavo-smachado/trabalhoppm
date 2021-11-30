@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Cadastro de Pessoas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [formGroup]="form">
+  <ion-item>
+    <ion-label position="stacked">Nome: </ion-label>
+    <ion-input type="text" formControlName="nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Gênero: </ion-label>
+    <ion-select formControlName="genero">
+      <ion-select-option value="MASCULINO">Masculino</ion-select-option>
+      <ion-select-option value="FEMININO">Feminino</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Endereço: </ion-label>
+    <ion-input type="text" formControlName="endereco"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Nascimento: </ion-label>
+    <ion-datetime
+      displayFormat="DD/MM/YYYY"
+      cancelText="Cancelar"
+      doneText="Selecionar"
+      formControlName="nascimento"
+    ></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Observacao: </ion-label>
+    <ion-input type="text" formControlName="observacao"></ion-input>
+  </ion-item> 
+
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="salvar()" [disabled]="!form.valid">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
